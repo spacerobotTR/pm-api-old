@@ -1,0 +1,177 @@
+
+
+
+<div class="card mb-4">
+  <h6 class="card-header">
+    Create New Project
+  </h6>
+  <div class="card-body">
+    <%= form_with(model: project, local: true, :validate => true) do |f| %>
+    <% if project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+        <ul>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div class="form-group row">
+        <%= f.label :projname, 'Project Name', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :projname, { :class=>"form-control", autofocus: true, required: true } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :status_id, 'Status', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.select :status_id,
+                                   options_from_collection_for_select(ProjStatus.all, 'status_id', 'statusdescr'), {},  :class=>'form-control m-b'  %>
+
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :startdate, 'Start Date', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+
+          <%= f.text_field :startdate,
+          :value => Time.now.strftime('%m/%d/%Y'),
+          :class=>"form-control", id: 'datepicker-base'  %>
+
+
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :enddate, 'End Date', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+
+          <%= f.text_field :enddate,
+          :value => Time.now.strftime('%m/%d/%Y'),
+          :class=>"form-control", id: 'datepicker-base2' %>
+
+
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :installer, 'Installer', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :installer, { :class=>"form-control" } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :cpdcprojnum, 'CPDC Project Number', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :cpdcprojnum, { :class=>"form-control" } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :projmanager, 'ProjectManager', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :projmanager, { :class=>"form-control" } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :customername, 'Customer Name', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :customername, { :class=>"form-control" } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :customerphone, 'Customer Phone', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :customerphone, { :class=>"form-control" } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :customeremail, 'Customer Email', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.text_field :customeremail, { :class=>"form-control" } %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :projtype, 'Project Type', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+          <%= f.select :projtype, Project.projtypes.keys, {include_blank: true}, class: 'custom-select' %>
+        </div>
+
+      </div>
+      <div class="form-group row">
+        <%= f.label :building, 'Building', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+        <%= f.text_field :building, { :class=>"form-control" } %>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :rooms, 'Rooms', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+        <%= f.text_field :rooms, { :class=>"form-control" } %>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :description, 'Project Description', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+        <%= f.text_area :description, { :class=>"form-control" } %>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :uploads, 'File Uploads', { :class=>"col-form-label col-sm-2 text-sm-right" } %>
+
+        <div class="col-sm-10">
+        <%= f.file_field :uploads, multiple: true, class: "form-control" %>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <div class="col-form-label col-sm-2 text-sm-right">
+        </div>
+
+
+        <div class="col-sm-10">
+
+          <%= button_tag type: 'submit', class: "btn btn-success" do %>
+            <span class="ion ion-md-add"></span> &nbsp;&nbsp;<% if ( f.object.new_record? ) %>Create Project<% else %>Update Project<% end %>
+
+          <% end %>
+          <%= link_to 'Cancel', projects_path, { :class=>"btn btn-secondary" } %>
+        </div>
+
+      </div>
+
+
+    <% end %>
+  </div>
+</div>

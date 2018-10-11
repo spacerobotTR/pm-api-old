@@ -1,0 +1,42 @@
+
+      <% if current_user.username == comment.user.username %>
+        <div class="feed-element" id="<%= dom_id(comment) %>" data-controller="inline-edit">
+          <% else %>
+          <div class="feed-element" id="<%= dom_id(comment) %>">
+          <% end %>
+          <div class="card-body">
+
+            <div class="media mb-3">
+              <div>
+
+                <div class="text-muted small text-nowrap mt-2"><%= @project.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
+              </div>
+              <div class="media-body bg-lighter rounded py-2 px-3 ml-3">
+                <div class="font-weight-semibold mb-1"><%= comment.user.username %></div>
+                  <div data-target="inline-edit.body" data-action="click->inline-edit#toggle"><%= comment.body.html_safe %></div>
+                  <%= form_for([@project, comment], remote: true, :html => {:autocomplete => "off", class: 'hidden'},
+                    data: {target: "inline-edit.form"}) do |f| %>
+                    <div>
+                      <%= error_messages_for(f.object) %>
+                    </div>
+                    <div>
+                      <%= f.text_field :body, class: 'form-control', autofocus: true %>
+                    </div>
+                    <div style="padding-top:20px;">
+                      <%= f.submit class: "btn btn-primary" %>
+                    </div>
+                  <% end %>
+
+                  <% if current_user.username == comment.user.username %>
+                  <div class="actions">
+
+                      <%= link_to "Delete", [@project, comment] , method: :delete, :remote => true,  data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-outline btn-inverse'  %>
+                  </div>
+                  <% end %>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>

@@ -1,0 +1,11 @@
+<%= form_for([@project, @comment || @project.comment.build], remote: true, :html => {:autocomplete => "off", class: local_assigns[:class]},
+  data: {target: "inline-edit.form"}) do |f| %>
+<div class="card-footer">
+  <div class="input-group">
+      <%= f.text_field :body, class: 'form-control', autofocus: true %>
+    <div class="input-group-append">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<% end %>
