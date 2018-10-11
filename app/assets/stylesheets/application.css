@@ -293,3 +293,8 @@
    display: none !important;
    visibility: hidden !important;
  }
+
+ #theme-settings a.theme-settings-open-btn {
+  top: auto;
+  bottom: 60px;
+}
