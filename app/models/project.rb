@@ -5,4 +5,5 @@ class Project < ApplicationRecord
   has_many_attached :uploads
   has_many :comments, dependent: :destroy
 
+
 end

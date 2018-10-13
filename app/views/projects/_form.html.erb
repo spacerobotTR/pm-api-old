@@ -1,3 +1,14 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'bootstrap-datepicker/bootstrap-datepicker.css', media: 'all' %>
+<% end %>
+
+<% content_for :scripts do %>
+  <!-- Dependencies -->
+  <%= javascript_include_tag 'moment/moment.js' %>
+  <%= javascript_include_tag 'bootstrap-datepicker/bootstrap-datepicker.js' %>
+  <%= javascript_include_tag 'forms_pickers.js' %>
+<% end %>
+
 
 
 

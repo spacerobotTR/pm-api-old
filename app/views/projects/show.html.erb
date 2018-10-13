@@ -83,16 +83,34 @@
         <div class="row no-gutters">
           <div class="col-md-12 col-lg-12 col-xl-12 p-1">
 
+            <%= form_for([@project]) do |f| %>
+            <div class="input-group">
+                <%= f.file_field :uploads, multiple: true, required: true,  class: "form-control" %>
+              <div class="input-group-append">
+                <%= f.submit "Upload Files", class: "btn btn-primary" %>
+              </div>
+            </div>
+
+
+
+            <% end %>
+
             <ul class="list-group list-group-flush">
 
             <% @project.uploads.each do |upload| %>
               <li class="list-group-item">
                 <div class="media align-items-center">
                   <div class="media-body px-2">
-                    <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %> - &nbsp;&nbsp;
-                    <%= link_to 'Remove', url_for(controller: :projects, action: :delete_upload, id: @project.id, upload_id: upload.id), method: :delete,   data: { confirm: 'Are you sure?' } %>
+                    <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
                   </div>
-                  <a href="javascript:void(0)" class="d-block text-light text-large font-weight-light">&times;</a>
+
+                  <% if current_user.try(:admin?) %>
+
+                    <%= link_to url_for(controller: :projects, action: :delete_upload, id: @project.id, upload_id: upload.id), method: :delete,   data: { confirm: 'Are you sure?' } do %>
+                      <span class="d-block text-light text-large font-weight-light">&times;</span>
+                    <% end %>
+                  <% end %>
+
                 </div>
               </li>
               <% end %>
@@ -108,7 +126,7 @@
       <ul class="nav nav-tabs">
 
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#project-discussion">Discussion</a>
+          <a class="nav-link active" data-toggle="tab" href="#project-discussion">Project Discussion</a>
         </li>
 
       </ul>

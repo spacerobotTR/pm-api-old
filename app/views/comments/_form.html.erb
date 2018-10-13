@@ -2,7 +2,7 @@
   data: {target: "inline-edit.form"}) do |f| %>
 <div class="card-footer">
   <div class="input-group">
-      <%= f.text_field :body, class: 'form-control', autofocus: true %>
+      <%= f.text_field :body, class: 'form-control', autofocus: true, required: true %>
     <div class="input-group-append">
       <%= f.submit class: "btn btn-primary" %>
     </div>

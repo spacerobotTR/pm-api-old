@@ -1,18 +1,19 @@
 
-      <% if current_user.username == comment.user.username %>
-        <div class="feed-element" id="<%= dom_id(comment) %>" data-controller="inline-edit">
-          <% else %>
-          <div class="feed-element" id="<%= dom_id(comment) %>">
-          <% end %>
+
+  <% if current_user.username == comment.user.username %>
+    <div class="feed-element" id="<%= dom_id(comment) %>" data-controller="inline-edit">
+      <% else %>
+      <div class="feed-element" id="<%= dom_id(comment) %>">
+      <% end %>
+        <div class="card mb-3">
           <div class="card-body">
-
-            <div class="media mb-3">
-              <div>
-
-                <div class="text-muted small text-nowrap mt-2"><%= @project.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
-              </div>
-              <div class="media-body bg-lighter rounded py-2 px-3 ml-3">
-                <div class="font-weight-semibold mb-1"><%= comment.user.username %></div>
+            <div class="media">
+              <div class="text-muted small"><%= @project.created_at.to_time.strftime("%m/%d/%Y") %></div>
+              <div class="media-body ml-4">
+                <div class="float-right text-muted small">Updated: <%= time_ago_in_words(comment.updated_at) %> ago</div>
+                <a href="mailto:<%= comment.user.username %>@syr.edu"><%= comment.user.username %></a>
+                <div class="text-muted small"><%= @project.created_at.to_time.strftime("%I:%M:%S %p") %></div>
+                <div class="mt-2">
                   <div data-target="inline-edit.body" data-action="click->inline-edit#toggle"><%= comment.body.html_safe %></div>
                   <%= form_for([@project, comment], remote: true, :html => {:autocomplete => "off", class: 'hidden'},
                     data: {target: "inline-edit.form"}) do |f| %>
@@ -28,15 +29,15 @@
                   <% end %>
 
                   <% if current_user.username == comment.user.username %>
-                  <div class="actions">
+                  <div class="small mt-2">
 
-                      <%= link_to "Delete", [@project, comment] , method: :delete, :remote => true,  data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-outline btn-inverse'  %>
+                      <%= link_to "Delete Comment", [@project, comment] , method: :delete, :remote => true, data: { confirm: 'Are you sure?' }, class: 'class="text-light'  %>
                   </div>
                   <% end %>
+                </div>
+
               </div>
             </div>
-
-
           </div>
-
         </div>
+  </div>

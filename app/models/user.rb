@@ -9,5 +9,5 @@ class User < ApplicationRecord
    end
 
      has_many :projects
-
+     has_many :uploads
 end
