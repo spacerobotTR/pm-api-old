@@ -21,9 +21,19 @@
     <li class="sidenav-item<%= current_page?('/projects') || request.fullpath.start_with?('/projects/') || current_page?(root_path) ? ' active' : '' %>">
       <%= link_to projects_path, class: "sidenav-link" do %><i class="sidenav-icon ion ion-ios-albums"></i><div>Projects</div><% end %>
     </li>
+    <% if current_user.try(:admin?) %>
+    <li class="sidenav-item<%= current_page?('/admin/installers') || request.fullpath.start_with?('/admin/installers/')  ? ' active' : '' %>">
+      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-md-speedometer"></i><div>Admin</div></a>
+      <ul class="sidenav-menu">
+    <li class="sidenav-item<%= current_page?('/admin/installers') || request.fullpath.start_with?('/admin/installers/')  ? ' active' : '' %>">
+      <%= link_to admin_installers_path, class: "sidenav-link" do %><i class="sidenav-icon ion ion-ios-albums"></i><div>Installers</div><% end %>
+    </li>
+      </ul>
+    </li>
+    <% end %>
 
 
-  
+
 
   </ul>
 </div>

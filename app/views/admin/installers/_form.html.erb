@@ -1,0 +1,27 @@
+<%= form_with(model: admin_installer, local: true) do |form| %>
+  <% if admin_installer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_installer.errors.count, "error") %> prohibited this admin_installer from being saved:</h2>
+
+      <ul>
+      <% admin_installer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :installertype %>
+    <%= form.text_area :installertype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

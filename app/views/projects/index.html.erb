@@ -73,8 +73,7 @@
       <tbody>
         <% @projects.each do |project| %>
         <tr>
-          <td><span class="badge badge-<%= project.proj_status.statusnotify %>"><%= project.proj_status.statusdescr %></span>
-          </td>
+          <td><span class="btn btn-<%= project.proj_status.statusnotify %> btn-xs md-btn-flat "><%= project.proj_status.statusdescr %></span></td>
           <td><%= project.projname %></td>
           <td><%= project.projmanager %></td>
           <td><%= project.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>

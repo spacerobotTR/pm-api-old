@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Installers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Installertype</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_installers.each do |admin_installer| %>
+      <tr>
+        <td><%= admin_installer.installertype %></td>
+        <td><%= admin_installer.description %></td>
+        <td><%= link_to 'Show', admin_installer %></td>
+        <td><%= link_to 'Edit', edit_admin_installer_path(admin_installer) %></td>
+        <td><%= link_to 'Destroy', admin_installer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Installer', new_admin_installer_path %>

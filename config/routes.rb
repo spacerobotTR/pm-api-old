@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :installers
+
+  end
   resources :comments
   devise_for :users
   resources :projects do
@@ -10,5 +14,6 @@ Rails.application.routes.draw do
 end
 
   root 'projects#index'
+
 
 end

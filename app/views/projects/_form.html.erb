@@ -1,11 +1,19 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'bootstrap-datepicker/bootstrap-datepicker.css', media: 'all' %>
+  <%= stylesheet_link_tag 'bootstrap-daterangepicker/bootstrap-daterangepicker.css', media: 'all' %>
+  <%= stylesheet_link_tag 'bootstrap-material-datetimepicker/bootstrap-material-datetimepicker.css', media: 'all' %>
+  <%= stylesheet_link_tag 'timepicker/timepicker.css', media: 'all' %>
+  <%= stylesheet_link_tag 'minicolors/minicolors.css', media: 'all' %>
 <% end %>
 
 <% content_for :scripts do %>
   <!-- Dependencies -->
   <%= javascript_include_tag 'moment/moment.js' %>
   <%= javascript_include_tag 'bootstrap-datepicker/bootstrap-datepicker.js' %>
+  <%= javascript_include_tag 'bootstrap-daterangepicker/bootstrap-daterangepicker.js' %>
+  <%= javascript_include_tag 'bootstrap-material-datetimepicker/bootstrap-material-datetimepicker.js' %>
+  <%= javascript_include_tag 'timepicker/timepicker.js' %>
+  <%= javascript_include_tag 'minicolors/minicolors.js' %>
   <%= javascript_include_tag 'forms_pickers.js' %>
 <% end %>
 
