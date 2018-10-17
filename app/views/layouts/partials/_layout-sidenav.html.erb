@@ -1,4 +1,5 @@
-<div id="layout-sidenav" class="<% if local_assigns[:horizontal] == true %>layout-sidenav-horizontal sidenav-horizontal container-p-x flex-grow-0<% else %>layout-sidenav sidenav-vertical<% end %> sidenav bg-sidenav-theme">
+<div id="layout-sidenav" class="<% if local_assigns[:horizontal] == true %>layout-sidenav-horizontal sidenav-horizontal container-p-x flex-grow-0<% else %>layout-sidenav sidenav-vertical<% end %> sidenav bg-sidenav-theme"
+   data-turbolinks='false'>
   <% if local_assigns[:horizontal] != true %>
   <!-- Brand demo (see assets/css/demo/demo.css) -->
   <div class="app-brand demo">
@@ -22,8 +23,8 @@
       <%= link_to projects_path, class: "sidenav-link" do %><i class="sidenav-icon ion ion-ios-albums"></i><div>Projects</div><% end %>
     </li>
     <% if current_user.try(:admin?) %>
-    <li class="sidenav-item<%= current_page?('/admin/installers') || request.fullpath.start_with?('/admin/installers/')  ? ' active' : '' %>">
-      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-md-speedometer"></i><div>Admin</div></a>
+    <li class="sidenav-item<%= request.fullpath.start_with?('/admin/') || request.path == '/' ? ' active open' : '' %>">
+      <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon ion ion-md-speedometer" ></i><div>Admin</div></a>
       <ul class="sidenav-menu">
     <li class="sidenav-item<%= current_page?('/admin/installers') || request.fullpath.start_with?('/admin/installers/')  ? ' active' : '' %>">
       <%= link_to admin_installers_path, class: "sidenav-link" do %><i class="sidenav-icon ion ion-ios-albums"></i><div>Installers</div><% end %>

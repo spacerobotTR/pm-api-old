@@ -1,7 +1,7 @@
-<h4 class="font-weight-bold py-3 mb-4">
-  <span class="text-muted font-weight-light">Projects /</span> New Project
-</h4>
+
+<div class="card-body demo-vertical-spacing">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"><%= breadcrumbs pretext: "You are here: ", display_single_fragment: true, style: :bootstrap, separator: ' / ' %></li>
+  </ol>
 
 <%= render 'form', project: @project %>
-
-<%= link_to 'Back', projects_path %>

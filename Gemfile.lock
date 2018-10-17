@@ -99,6 +99,8 @@ GEM
     ffi (1.9.23-x86-mingw32)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -248,6 +250,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.3)
   devise_ldap_authenticatable!
+  gretel
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   net-ldap (~> 0.16.0)

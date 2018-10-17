@@ -17,16 +17,16 @@ $(function() {
       var priorityColors = { 1: 'btn-danger', 2: 'btn-success', 3: 'btn-warning' };
 
       // Priority dropdown
-      var priorityDropdown = $(
-        '<div class="ticket-priority btn-group">' +
-          '<button type="button" class="btn btn-xs md-btn-flat dropdown-toggle" data-toggle="dropdown"></button>' +
-          '<div class="dropdown-menu">' +
-            '<a class="dropdown-item" href="javascript:void(0)" data-priority="1">High</a>' +
-            '<a class="dropdown-item" href="javascript:void(0)" data-priority="2">Medium</a>' +
-            '<a class="dropdown-item" href="javascript:void(0)" data-priority="3">Low</a>' +
-          '</div>' +
-        '</div>'
-      );
+      // var priorityDropdown = $(
+      //   '<div class="ticket-priority btn-group">' +
+      //     '<button type="button" class="btn btn-xs md-btn-flat dropdown-toggle" data-toggle="dropdown"></button>' +
+      //     '<div class="dropdown-menu">' +
+      //       '<a class="dropdown-item" href="javascript:void(0)" data-priority="1">High</a>' +
+      //       '<a class="dropdown-item" href="javascript:void(0)" data-priority="2">Medium</a>' +
+      //       '<a class="dropdown-item" href="javascript:void(0)" data-priority="3">Low</a>' +
+      //     '</div>' +
+      //   '</div>'
+      // );
 
       // Set up active priority
       priorityDropdown
@@ -46,17 +46,17 @@ $(function() {
       // Setup statuses
 
       // Status dropdown
-      var statusDropdown = $(
-        '<div class="ticket-status btn-group">' +
-          '<button type="button" class="btn btn-outline-secondary btn-xs md-btn-flat dropdown-toggle" data-toggle="dropdown"></button>' +
-          '<div class="dropdown-menu">' +
-            '<a class="dropdown-item" href="javascript:void(0)" data-status="1">Open</a>' +
-            '<a class="dropdown-item" href="javascript:void(0)" data-status="2">Reopened</a>' +
-            '<a class="dropdown-item" href="javascript:void(0)" data-status="3">In progress</a>' +
-            '<a class="dropdown-item" href="javascript:void(0)" data-status="4">Closed</a>' +
-          '</div>' +
-        '</div>'
-      );
+      // var statusDropdown = $(
+      //   '<div class="ticket-status btn-group">' +
+      //     '<button type="button" class="btn btn-outline-secondary btn-xs md-btn-flat dropdown-toggle" data-toggle="dropdown"></button>' +
+      //     '<div class="dropdown-menu">' +
+      //       '<a class="dropdown-item" href="javascript:void(0)" data-status="1">Open</a>' +
+      //       '<a class="dropdown-item" href="javascript:void(0)" data-status="2">Reopened</a>' +
+      //       '<a class="dropdown-item" href="javascript:void(0)" data-status="3">In progress</a>' +
+      //       '<a class="dropdown-item" href="javascript:void(0)" data-status="4">Closed</a>' +
+      //     '</div>' +
+      //   '</div>'
+      // );
 
       // Set up active priority
       statusDropdown
