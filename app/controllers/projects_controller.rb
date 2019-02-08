@@ -1,11 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Projects", :projects_path
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.joins(:proj_status).order("created_at DESC")
     @title = 'Projects - Summary'
+
   end
 
   # GET /projects/1
@@ -14,6 +16,7 @@ class ProjectsController < ApplicationController
     @projects = Project.joins(:proj_status).order("created_at DESC")
     @comments = Comment.where(project_id: @project).order("created_at DESC")
     @comment = Comment.new
+      add_breadcrumb "Project Details", :projects_path
 
   end
 
@@ -26,6 +29,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @projstatus = ProjStatus.all
   end
 
   # GET /projects/1/edit

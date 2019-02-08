@@ -17,15 +17,14 @@ Rails.application.config.assets.precompile += Dir[Rails.root.join('app', 'assets
 # Precompile core stylesheets
 Rails.application.config.assets.precompile += [
   # Core stylesheets
-  'stylesheets/bootstrap.css',
-  'stylesheets/bootstrap-material.css',
-  'stylesheets/appwork.css',
-  'stylesheets/appwork-material.css',
-  'stylesheets/colors.css',
-  'stylesheets/colors-material.css',
-  'stylesheets/uikit.css',
-
-  # Themes
+'stylesheets/bootstrap.css',
+'stylesheets/bootstrap-material.css',
+'stylesheets/appwork.css',
+'stylesheets/appwork-material.css',
+'stylesheets/colors.css',
+'stylesheets/colors-material.css',
+'stylesheets/uikit.css',
+'stylesheets/fontawesome.css',
   'stylesheets/theme-air.css',
   'stylesheets/theme-air-material.css',
   'stylesheets/theme-corporate.css',

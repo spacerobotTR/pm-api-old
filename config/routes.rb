@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
   namespace :admin do
     resources :installers
 
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   end
 end
 
-  root 'projects#index'
+  root 'home#index'
 
 
 end

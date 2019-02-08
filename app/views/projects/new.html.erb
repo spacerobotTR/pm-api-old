@@ -1,7 +1,12 @@
 
-<div class="card-body demo-vertical-spacing">
+
+<div class="cui-example cui-example-vertical-spacing">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item active"><%= breadcrumbs pretext: "You are here: ", display_single_fragment: true, style: :bootstrap, separator: ' / ' %></li>
+    <h4 class="font-weight-bold">
+    <li class="breadcrumb-item">
+    <%= render_breadcrumbs :separator => " / " %>
+    </li>
+    </h4>
   </ol>
 
 <%= render 'form', project: @project %>

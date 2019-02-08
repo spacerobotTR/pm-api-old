@@ -18,7 +18,7 @@ gem 'devise', '~> 4.3'
 
 gem 'net-ldap', '~> 0.16.0'
 
-gem 'gretel'
+gem "breadcrumbs_on_rails"
 
 gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ldap_authenticatable.git"
 
