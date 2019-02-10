@@ -6,10 +6,10 @@ set :repo_url, "git@example.com:spacerobotTR/pm-api.git"
 
 set :deploy_to, '/home/deploy/vasttpm'
 
-append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, "config/database.yml", "config/secrets.yml, ldap.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 
-server '159.89.43.174', user: 'deploy', roles: %w{app db web}
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
