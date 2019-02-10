@@ -1,0 +1,16 @@
+authorizations: &AUTHORIZATIONS
+  required_groups:
+    - CN=BFAS-WebApp-VASTTPM,OU=Users,OU=BFAS,DC=ad,DC=syr,DC=edu
+
+## Environment
+
+development:
+  host: ad.syr.edu
+  port: 389
+  attribute: sAMAccountName
+  base: dc=ad,dc=syr,dc=edu
+  admin_user: ad\s-dcsesadquery
+  admin_password: 7~bQ`2O|#?IqOn1c7?c=
+  ssl: false
+
+  <<: *AUTHORIZATIONS
