@@ -2,11 +2,11 @@
 lock "~> 3.11.0"
 
 set :application, "vasttpm"
-set :repo_url, "git@example.com:spacerobotTR/pm-api.git"
+set :repo_url, "git@github.com:spacerobotTR/pm-api.git"
 
 set :deploy_to, '/home/deploy/vasttpm'
 
-append :linked_files, "config/database.yml", "ldap.yml", fetch(:linked_files, []).push("config/master.key")
+append :linked_files, "config/database.yml", "config/ldap.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 
 
