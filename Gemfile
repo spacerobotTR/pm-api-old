@@ -8,6 +8,8 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
 gem 'webpacker', '~> 3.5'
 
 gem 'devise', '~> 4.3'
@@ -34,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
